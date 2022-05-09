@@ -1,6 +1,16 @@
 #include <stdio.h>
 
+extern int isAtStart;
+
+void switchOn();
+void checkForWall();
+
 void main()
 {
-	printf("hello there\n");
+	switchOn();
+
+	while(isAtStart == 0)
+	{
+		checkForWall();
+	}
 }
