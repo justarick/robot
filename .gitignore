@@ -1,3 +1,4 @@
-#ignores objects and robot executable
+#ignores objects, swapfiles, robot exe
 *.o
+*.swp
 robot
