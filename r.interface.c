@@ -10,7 +10,21 @@ void receiveInput(char *input)
 	scanf("%s", input);
 }
 
-void throwInputError()
+void throwError(int errorNumber)
 {
-	printf("Das habe ich nicht verstanden.\n");
+	switch(errorNumber)
+	{
+		case 0: printf("Das habe ich nicht verstanden.\n");
+			break;
+	}
+}
+
+void sayMove()
+{
+	printf("Schritt\n");
+}
+
+void sayTurn()
+{
+	printf("Drehung\n");
 }

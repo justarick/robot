@@ -1,9 +1,11 @@
 #include <stdio.h>
 
-// robot.c
+// external variables
 extern char userInput[64];
 extern int inputIsValid;
 extern int wallCheck;
+extern int isAtStart;
+extern int status[3];
 
 // FUNCTIONS
 void validateUserInput()
@@ -23,5 +25,13 @@ void setWallCheck()
 	else
 	{
 		wallCheck = 0;
+	}
+}
+
+void checkStatus()
+{
+	if(status[0] == 0 && status[1] == 0 && status[2] == 4)
+	{
+		isAtStart = 1;
 	}
 }

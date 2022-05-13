@@ -4,6 +4,8 @@ extern int isAtStart;
 
 void switchOn();
 void checkForWall();
+void move();
+void checkStatus();
 
 void main()
 {
@@ -12,5 +14,7 @@ void main()
 	while(isAtStart == 0)
 	{
 		checkForWall();
+		move();
+		checkStatus();
 	}
 }

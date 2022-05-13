@@ -3,19 +3,23 @@
 // r.interface.c
 void requestInput();
 void receiveInput(char *input);
-void throwInputError();
+void throwError(int errorNumber);
 
 // r.system.c
 void validateUserInput();
 void setWallCheck();
 
+// r.movement.c
+void walkHome();
+void walk();
+void turn();
+
 // VARIABLES
 int isAtStart;
-
 char userInput[64];
 int inputIsValid;
-
 int wallCheck;
+int status[3];
 
 // FUNCTIONS
 void switchOn()
@@ -23,6 +27,9 @@ void switchOn()
 	isAtStart = 0;
 	inputIsValid = 0;
 	wallCheck = 0;
+	status[0] = 0;
+	status[1] = 0;
+	status[2] = 0;
 }
 
 void checkForWall()
@@ -35,7 +42,7 @@ void checkForWall()
 
 		if(inputIsValid == 0)
 		{
-			throwInputError();
+			throwError(0);
 		}
 	}
 	while(inputIsValid == 0);
@@ -43,6 +50,20 @@ void checkForWall()
 	inputIsValid = 0;
 
 	setWallCheck();
+}
 
-	printf("WallCheck: %d", wallCheck);
+void move()
+{
+	if(status[2] == 3)
+	{
+		walkHome();
+	}
+	else if(wallCheck == 0)
+	{
+		walk();
+	}
+	else if(wallCheck == 1)
+	{
+		turn();
+	}
 }
