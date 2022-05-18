@@ -36,6 +36,11 @@ void checkForWall()
 {
 	do
 	{
+		if(status[2] == 3)
+		{
+			walkHome();
+		}
+
 		requestInput();
 		receiveInput(userInput);
 		validateUserInput();
@@ -54,11 +59,7 @@ void checkForWall()
 
 void move()
 {
-	if(status[2] == 3)
-	{
-		walkHome();
-	}
-	else if(wallCheck == 0)
+	if(wallCheck == 0)
 	{
 		walk();
 	}

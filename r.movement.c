@@ -30,9 +30,13 @@ void walk()
 	{
 		status[1]++;
 	}
-	else
+	else if(status[2] == 1)
 	{
 		status[0]++;
+	}
+	else if(status[2] == 2)
+	{
+		status[1]--;
 	}
 
 	sayMove();
