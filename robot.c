@@ -32,7 +32,7 @@ void switchOn()
 	status[2] = 0;
 }
 
-void checkForWall()
+void lookaround()
 {
 	do
 	{
