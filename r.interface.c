@@ -3,6 +3,7 @@
 void getInput(char *input)
 {
 	scanf("%s", input);
+	printf("\n");
 }
 
 void phrase(int n)
@@ -11,20 +12,15 @@ void phrase(int n)
 
 	switch(n)
 	{
-		case 0: printf("Hallo, ich bin WallE.\n
-				Ich kann in einem rechteckigen Raum an der Wand entlangfahren.\n
-				Ich mache einen Schritt nach dem anderen.\n
-				Du musst mir sagen, wenn eine Wand vor mir ist.\n
-				Nach der dritten Drehung kann ich allein zum Start laufen.\n");
+		case 0: printf("Hallo, ich bin WallE.\nIch kann in einem rechteckigen Raum an der Wand entlanglaufen.\nIch mache einen Schritt nach dem anderen.\nDu musst mir sagen, wenn eine Wand vor mir ist.\nNach der dritten Drehung kann ich allein zum Start laufen.\n\n");
 			break;
-		case 1: printf("Ist eine Wand vor mir?\n
-				Antwort (j/n): ");
+		case 1: printf("Ist eine Wand vor mir?\nAntwort (j/n): ");
 			break;
-		case 2: printf("Schritt\n");
+		case 2: printf("Schritt\n\n");
 			break;
-		case 3: printf("Drehung\n");
+		case 3: printf("Drehung\n\n");
 			break;
-		case 4: printf("Ich laufe zum Start\n");
+		case 4: printf("Ich laufe zum Start\n\n");
 			break;
 	}
 }
@@ -35,20 +31,8 @@ void error(int n)
 
 	switch(n)
 	{
-		case 0: printf("Das habe ich nicht verstanden.\n");
+		case 0: printf("Das habe ich nicht verstanden.\n\n");
 			break;
-		case 1: printf("Das kann nicht sein.\n
-				Der Raum ist rechteckig.\n");
-	}
-}
-
-void info(int n)
-{
-	printf("Info: ");
-
-	switch(n)
-	{
-		case 0; printf("");
-			break;
+		case 1: printf("Das kann nicht sein.\nDer Raum ist rechteckig.\n\n");
 	}
 }

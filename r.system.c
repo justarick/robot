@@ -1,22 +1,19 @@
 #include <stdio.h>
 
-// external variables
 extern char userInput[64];
 extern int inputIsValid;
 extern int wallCheck;
 extern int isAtStart;
 extern int status[3];
 
-// r.interface.c
-void throwError(int errorNumber);
+void error(int errorNumber);
 
-// FUNCTIONS
-void validateUserInput()
+void validateInput()
 {
 	if(*userInput == 'j' && status[2] == 2 && status[1] >= 0)
 	{
 		inputIsValid = 0;
-		throwError(1);
+		error(1);
 	}
 
 	if(*userInput == 'j' || *userInput == 'n')

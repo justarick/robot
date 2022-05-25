@@ -1,26 +1,22 @@
 #include <stdio.h>
 
-// r.interface.c
-void sayMove();
-void sayTurn();
+void phrase(int phraseNumber);
 
-// external variables
 extern int status[3];
 
-// FUNCTIONS
 void walkHome()
 {
 	for(status[0]; status[0] > 0; status[0]--)
 	{
-		sayMove();
+		phrase(2);
 	}
 
 	status[2]++;
-	sayTurn();
+	phrase(3);
 
 	for(status[1]; status[1] < 0; status[1]++)
 	{
-		sayMove();
+		phrase(2);
 	}
 }
 
@@ -39,11 +35,11 @@ void walk()
 		status[1]--;
 	}
 
-	sayMove();
+	phrase(2);
 }
 
 void turn()
 {
 	status[2]++;
-	sayTurn();
+	phrase(3);
 }

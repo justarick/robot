@@ -1,29 +1,26 @@
 #include <stdio.h>
 
-// r.interface.c
-void requestInput();
-void receiveInput(char *input);
-void throwError(int errorNumber);
+void getInput(char *input);
+void phrase(int phraseNumber);
+void error(int errorNumber);
 
-// r.system.c
-void validateUserInput();
+void validateInput();
 void setWallCheck();
 
-// r.movement.c
 void walkHome();
 void walk();
 void turn();
 
-// VARIABLES
 int isAtStart;
 char userInput[64];
 int inputIsValid;
 int wallCheck;
 int status[3];
 
-// FUNCTIONS
-void switchOn()
+void boot()
 {
+	phrase(0);
+
 	isAtStart = 0;
 	inputIsValid = 0;
 	wallCheck = 0;
@@ -34,23 +31,12 @@ void switchOn()
 
 void lookaround()
 {
-	do
+	while(status[2] < 3 && inputIsValid == 0)
 	{
-		if(status[2] == 3)
-		{
-			walkHome();
-		}
-
-		requestInput();
-		receiveInput(userInput);
-		validateUserInput();
-
-		if(inputIsValid == 0)
-		{
-			throwError(0);
-		}
+		phrase(1);
+		getInput(userInput);
+		validateInput();
 	}
-	while(inputIsValid == 0);
 
 	inputIsValid = 0;
 
@@ -59,7 +45,11 @@ void lookaround()
 
 void move()
 {
-	if(wallCheck == 0)
+	if(status[2] == 3)
+	{
+		walkHome();
+	}
+	else if(wallCheck == 0)
 	{
 		walk();
 	}
